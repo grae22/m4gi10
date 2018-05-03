@@ -186,5 +186,27 @@ namespace m4gi10Test.Logic
     }
 
     //---------------------------------------------------------------------------------------------
+
+    [Test]
+    [Category("TrackFile")]
+    public void Constructor_GivenFileWithInvalidTrackNumberAttrib_ShouldReturnZero()
+    {
+      // Arrange.
+      const string validFilename = "someFile.txt";
+
+      var fileSystem = Substitute.For<IFileSystem>();
+      fileSystem.File.Exists(validFilename).Returns(true);
+
+      var filePropertyRetriever = Substitute.For<IFileExtendedPropertyRetriever>();
+      filePropertyRetriever.GetPropertyValue("System.Music.TrackNumber").Returns("x");
+
+      // Act.
+      var testObject = new TrackFile(validFilename, fileSystem, filePropertyRetriever);
+
+      // Assert.
+      Assert.AreEqual(0, testObject.TrackNumber);
+    }
+
+    //---------------------------------------------------------------------------------------------
   }
 }
