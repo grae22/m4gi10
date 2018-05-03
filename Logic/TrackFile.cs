@@ -9,10 +9,12 @@ namespace m4gi10.Logic
     //---------------------------------------------------------------------------------------------
 
     public string Artist { get; private set; } = "";
+    public string Album { get; private set; } = "";
     public int TrackNumber { get; private set; }
 
     private const string FilePropertyAlbumArtist = "System.Music.AlbumArtist";
     private const string FilePropertyArtist = "System.Music.Artist";
+    private const string FilePropertyAlbum = "System.Music.Album";
     private const string FilePropertyTrackNumber = "System.Music.TrackNumber";
 
     private string Filename { get; }
@@ -32,6 +34,7 @@ namespace m4gi10.Logic
 
       ValidateFileExists();
       UpdateArtist();
+      UpdateAlbum();
       UpdateTrackNumber();
     }
 
@@ -80,6 +83,20 @@ namespace m4gi10.Logic
     private string GetArtistPropertyValue()
     {
       return FilePropertyRetriever.GetPropertyValue(FilePropertyArtist);
+    }
+
+    //---------------------------------------------------------------------------------------------
+
+    private void UpdateAlbum()
+    {
+      Album = FilePropertyRetriever.GetPropertyValue(FilePropertyAlbum);
+
+      if (!string.IsNullOrWhiteSpace(Album))
+      {
+        return;
+      }
+
+      Album = "Unknown";
     }
 
     //---------------------------------------------------------------------------------------------

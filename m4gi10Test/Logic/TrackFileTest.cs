@@ -101,6 +101,50 @@ namespace m4gi10Test.Logic
 
     [Test]
     [Category("TrackFile")]
+    public void Constructor_GivenFileWithoutAlbumAttrib_ShouldReturnUnknown()
+    {
+      // Arrange.
+      const string validFilename = "someFile.txt";
+
+      var fileSystem = Substitute.For<IFileSystem>();
+      fileSystem.File.Exists(validFilename).Returns(true);
+
+      var filePropertyRetriever = Substitute.For<IFileExtendedPropertyRetriever>();
+      filePropertyRetriever.GetPropertyValue("System.Music.Album").Returns("");
+
+      // Act.
+      var testObject = new TrackFile(validFilename, fileSystem, filePropertyRetriever);
+
+      // Assert.
+      Assert.AreEqual("Unknown", testObject.Album);
+    }
+
+    //---------------------------------------------------------------------------------------------
+
+    [Test]
+    [Category("TrackFile")]
+    public void Constructor_GivenFileWithAlbumAttrib_ShouldReturnValue()
+    {
+      // Arrange.
+      const string validFilename = "someFile.txt";
+
+      var fileSystem = Substitute.For<IFileSystem>();
+      fileSystem.File.Exists(validFilename).Returns(true);
+
+      var filePropertyRetriever = Substitute.For<IFileExtendedPropertyRetriever>();
+      filePropertyRetriever.GetPropertyValue("System.Music.Album").Returns("SomeAlbum");
+
+      // Act.
+      var testObject = new TrackFile(validFilename, fileSystem, filePropertyRetriever);
+
+      // Assert.
+      Assert.AreEqual("SomeAlbum", testObject.Album);
+    }
+
+    //---------------------------------------------------------------------------------------------
+
+    [Test]
+    [Category("TrackFile")]
     public void Constructor_GivenFileWithoutTrackNumberAttrib_ShouldReturnZero()
     {
       // Arrange.
