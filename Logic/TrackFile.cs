@@ -4,7 +4,7 @@ using m4gi10.Utils;
 
 namespace m4gi10.Logic
 {
-  internal class TrackFile
+  internal class TrackFile : ITrackFile
   {
     //---------------------------------------------------------------------------------------------
 

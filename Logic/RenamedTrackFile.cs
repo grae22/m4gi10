@@ -4,12 +4,12 @@
   {
     //---------------------------------------------------------------------------------------------
 
-    public TrackFile File { get; }
+    public ITrackFile File { get; }
     public string NewFilename { get; }
 
     //---------------------------------------------------------------------------------------------
 
-    public RenamedTrackFile(TrackFile trackFile, string newFilename)
+    public RenamedTrackFile(ITrackFile trackFile, string newFilename)
     {
       File = trackFile;
       NewFilename = newFilename;
