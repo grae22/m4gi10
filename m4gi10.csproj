@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Logic\ITrackFile.cs" />
     <Compile Include="Logic\RenamedTrackFile.cs" />
+    <Compile Include="Logic\TrackFileRenamer.cs" />
     <Compile Include="Utils\IFileExtendedPropertyRetriever.cs" />
     <Compile Include="Ui\MainForm.cs">
       <SubType>Form</SubType>
