@@ -1,11 +1,11 @@
 ﻿using System;
 using System.IO.Abstractions;
-using NUnit.Framework;
-using m4gi10;
 using NSubstitute;
-using NSubstitute.ExceptionExtensions;
+using NUnit.Framework;
+using m4gi10.Logic;
+using m4gi10.Utils;
 
-namespace m4gi10Test
+namespace m4gi10Test.Logic
 {
   [TestFixture]
   public class TrackFileTest

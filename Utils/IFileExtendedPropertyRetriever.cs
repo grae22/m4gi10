@@ -1,4 +1,4 @@
-﻿namespace m4gi10
+﻿namespace m4gi10.Utils
 {
   internal interface IFileExtendedPropertyRetriever
   {

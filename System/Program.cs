@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
+using m4gi10.Ui;
 
-namespace m4gi10
+namespace m4gi10.System
 {
   public static class Program
   {

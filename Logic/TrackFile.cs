@@ -1,7 +1,8 @@
 ﻿using System;
 using System.IO.Abstractions;
+using m4gi10.Utils;
 
-namespace m4gi10
+namespace m4gi10.Logic
 {
   internal class TrackFile
   {
