@@ -208,5 +208,27 @@ namespace m4gi10Test.Logic
     }
 
     //---------------------------------------------------------------------------------------------
+
+    [Test]
+    [Category("TrackFile")]
+    public void Constructor_GivenFileWithExtension_ShouldReturnValue()
+    {
+      // Arrange.
+      const string validFilename = "someFile.MP3";
+
+      var fileSystem = Substitute.For<IFileSystem>();
+      fileSystem.File.Exists(validFilename).Returns(true);
+      fileSystem.Path.GetExtension(Arg.Any<string>()).Returns("MP3");
+
+      var filePropertyRetriever = Substitute.For<IFileExtendedPropertyRetriever>();
+
+      // Act.
+      var testObject = new TrackFile(validFilename, fileSystem, filePropertyRetriever);
+
+      // Assert.
+      Assert.AreEqual("mp3", testObject.FileExtension);
+    }
+
+    //---------------------------------------------------------------------------------------------
   }
 }

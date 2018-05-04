@@ -7,6 +7,7 @@
     string Artist { get; }
     string Album { get; }
     int TrackNumber { get; }
+    string FileExtension { get; }
 
     //---------------------------------------------------------------------------------------------
   }

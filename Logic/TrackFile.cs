@@ -11,6 +11,7 @@ namespace m4gi10.Logic
     public string Artist { get; private set; } = "";
     public string Album { get; private set; } = "";
     public int TrackNumber { get; private set; }
+    public string FileExtension { get; private set; } = "";
 
     private const string FilePropertyAlbumArtist = "System.Music.AlbumArtist";
     private const string FilePropertyArtist = "System.Music.Artist";
@@ -36,6 +37,7 @@ namespace m4gi10.Logic
       UpdateArtist();
       UpdateAlbum();
       UpdateTrackNumber();
+      UpdateFileExtension();
     }
 
     //---------------------------------------------------------------------------------------------
@@ -116,6 +118,13 @@ namespace m4gi10.Logic
       }
 
       TrackNumber = trackNumber;
+    }
+
+    //---------------------------------------------------------------------------------------------
+
+    private void UpdateFileExtension()
+    {
+      FileExtension = FileSystem.Path.GetExtension(Filename).ToLower();
     }
 
     //---------------------------------------------------------------------------------------------
