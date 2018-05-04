@@ -178,5 +178,29 @@ namespace m4gi10Test.Logic
     }
 
     //---------------------------------------------------------------------------------------------
+
+    [Test]
+    [Category("TrackFileRenamer")]
+    public void GetRenamedTrackFiles_GivenFileExtension_ShouldReturnFileExtension()
+    {
+      // Arrange.
+      var trackFile = Substitute.For<ITrackFile>();
+      trackFile.Artist.Returns("Some Artist");
+      trackFile.Album.Returns("Some Album");
+      trackFile.TrackNumber.Returns(1);
+      trackFile.FileExtension.Returns(".mp3");
+
+      // Act.
+      var renamedFiles = TrackFileRenamer.GetRenamedTrackFiles(
+        new List<ITrackFile> { trackFile },
+        99,
+        99);
+
+      // Assert.
+      Assert.AreEqual(1, renamedFiles.Count());
+      Assert.AreEqual("SomeArtist_SomeAlbum_1.mp3", renamedFiles.First().NewFilename);
+    }
+
+    //---------------------------------------------------------------------------------------------
   }
 }
