@@ -145,15 +145,15 @@ namespace m4gi10Test.Logic
       artist1Album1Track2.Artist.Returns("Some Artist1");
       artist1Album2Track1.Artist.Returns("Some Artist1");
       artist1Album2Track2.Artist.Returns("Some Artist1");
-      artist2Album1Track1.Artist.Returns("Some Artist2");
-      artist2Album1Track2.Artist.Returns("Some Artist2");
+      artist2Album1Track1.Artist.Returns("Another Artist2");
+      artist2Album1Track2.Artist.Returns("Another Artist2");
 
-      artist1Album1Track1.Album.Returns("Some Album 1");
-      artist1Album1Track2.Album.Returns("Some Album 1");
-      artist1Album2Track1.Album.Returns("Some Album 2");
-      artist1Album2Track2.Album.Returns("Some Album 2");
-      artist2Album1Track1.Album.Returns("Some Album 3");
-      artist2Album1Track2.Album.Returns("Some Album 3");
+      artist1Album1Track1.Album.Returns("Some Album");
+      artist1Album1Track2.Album.Returns("Some Album");
+      artist1Album2Track1.Album.Returns("Another Album");
+      artist1Album2Track2.Album.Returns("Another Album");
+      artist2Album1Track1.Album.Returns("Random Album 3");
+      artist2Album1Track2.Album.Returns("Random Album 3");
 
       var trackFiles = new List<ITrackFile>
       {
@@ -169,10 +169,10 @@ namespace m4gi10Test.Logic
       var renamedFiles = TrackFileRenamer.GetRenamedTrackFiles(trackFiles);
 
       // Assert.
-      Assert.AreEqual("SomeAr_SomeAl_1", renamedFiles.ElementAt(0).NewFilename);
-      Assert.AreEqual("SomeAr_SomeAl_2", renamedFiles.ElementAt(1).NewFilename);
-      Assert.AreEqual("SomeAr_SomeAl_1", renamedFiles.ElementAt(2).NewFilename);
-      Assert.AreEqual("SomeAr_SomeAl_2", renamedFiles.ElementAt(3).NewFilename);
+      Assert.AreEqual("Anothe_Random_1", renamedFiles.ElementAt(0).NewFilename);
+      Assert.AreEqual("Anothe_Random_2", renamedFiles.ElementAt(1).NewFilename);
+      Assert.AreEqual("SomeAr_Anothe_1", renamedFiles.ElementAt(2).NewFilename);
+      Assert.AreEqual("SomeAr_Anothe_2", renamedFiles.ElementAt(3).NewFilename);
       Assert.AreEqual("SomeAr_SomeAl_1", renamedFiles.ElementAt(4).NewFilename);
       Assert.AreEqual("SomeAr_SomeAl_2", renamedFiles.ElementAt(5).NewFilename);
     }
