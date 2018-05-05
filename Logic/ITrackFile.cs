@@ -8,6 +8,7 @@
     string Album { get; }
     int TrackNumber { get; }
     string FileExtension { get; }
+    string Filename { get; }
 
     //---------------------------------------------------------------------------------------------
   }

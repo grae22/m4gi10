@@ -46,7 +46,17 @@ namespace m4gi10.Ui
 
     private void uiGo_Click(object sender, EventArgs e)
     {
+      if (!Directory.Exists(uiOutputFolder.Text))
+      {
+        Directory.CreateDirectory(uiOutputFolder.Text);
+      }
 
+      foreach (RenamedTrackFile track in uiFiles.Items)
+      {
+        File.Copy(
+          track.File.Filename,
+          $@"{uiOutputFolder.Text}\{track.NewFilename}");
+      }
     }
 
     //---------------------------------------------------------------------------------------------

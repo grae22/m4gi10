@@ -12,13 +12,13 @@ namespace m4gi10.Logic
     public string Album { get; private set; } = "";
     public int TrackNumber { get; private set; }
     public string FileExtension { get; private set; } = "";
+    public string Filename { get; }
 
     private const string FilePropertyAlbumArtist = "System.Music.AlbumArtist";
     private const string FilePropertyArtist = "System.Music.Artist";
     private const string FilePropertyAlbum = "System.Music.Album";
     private const string FilePropertyTrackNumber = "System.Music.TrackNumber";
 
-    private string Filename { get; }
     private IFileSystem FileSystem { get; }
     private IFileExtendedPropertyRetriever FilePropertyRetriever { get; }
 
