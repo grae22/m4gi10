@@ -112,7 +112,7 @@ namespace m4gi10.Logic
         newAlbum = newAlbum.Substring(0, albumNameMaxLength);
       }
 
-      var newName = $"{newArtistName}_{newAlbum}_{trackNumber}{track.FileExtension}";
+      var newName = $"{newArtistName}_{newAlbum}_{trackNumber:00}{track.FileExtension}";
 
       renamedTracks.Add(new RenamedTrackFile(track, newName));
     }

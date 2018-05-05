@@ -29,7 +29,7 @@ namespace m4gi10Test.Logic
 
       // Assert.
       Assert.AreEqual(1, renamedFiles.Count());
-      Assert.AreEqual("SomeArtist_SomeAlbum_1", renamedFiles.First().NewFilename);
+      Assert.AreEqual("SomeArtist_SomeAlbum_01", renamedFiles.First().NewFilename);
     }
 
     //---------------------------------------------------------------------------------------------
@@ -68,10 +68,10 @@ namespace m4gi10Test.Logic
         99);
       
       // Assert.
-      Assert.AreEqual("SomeArtist1_SomeAlbum_1", renamedFiles.ElementAt(0).NewFilename);
-      Assert.AreEqual("SomeArtist1_SomeAlbum_2", renamedFiles.ElementAt(1).NewFilename);
-      Assert.AreEqual("SomeArtist2_SomeAlbum_1", renamedFiles.ElementAt(2).NewFilename);
-      Assert.AreEqual("SomeArtist2_SomeAlbum_2", renamedFiles.ElementAt(3).NewFilename);
+      Assert.AreEqual("SomeArtist1_SomeAlbum_01", renamedFiles.ElementAt(0).NewFilename);
+      Assert.AreEqual("SomeArtist1_SomeAlbum_02", renamedFiles.ElementAt(1).NewFilename);
+      Assert.AreEqual("SomeArtist2_SomeAlbum_01", renamedFiles.ElementAt(2).NewFilename);
+      Assert.AreEqual("SomeArtist2_SomeAlbum_02", renamedFiles.ElementAt(3).NewFilename);
     }
 
     //---------------------------------------------------------------------------------------------
@@ -119,12 +119,12 @@ namespace m4gi10Test.Logic
         99);
 
       // Assert.
-      Assert.AreEqual("Artist1_1_1", renamedFiles.ElementAt(0).NewFilename);
-      Assert.AreEqual("Artist1_1_2", renamedFiles.ElementAt(1).NewFilename);
-      Assert.AreEqual("Artist1_2_1", renamedFiles.ElementAt(2).NewFilename);
-      Assert.AreEqual("Artist1_2_2", renamedFiles.ElementAt(3).NewFilename);
-      Assert.AreEqual("Artist2_3_1", renamedFiles.ElementAt(4).NewFilename);
-      Assert.AreEqual("Artist2_3_2", renamedFiles.ElementAt(5).NewFilename);
+      Assert.AreEqual("Artist1_1_01", renamedFiles.ElementAt(0).NewFilename);
+      Assert.AreEqual("Artist1_1_02", renamedFiles.ElementAt(1).NewFilename);
+      Assert.AreEqual("Artist1_2_01", renamedFiles.ElementAt(2).NewFilename);
+      Assert.AreEqual("Artist1_2_02", renamedFiles.ElementAt(3).NewFilename);
+      Assert.AreEqual("Artist2_3_01", renamedFiles.ElementAt(4).NewFilename);
+      Assert.AreEqual("Artist2_3_02", renamedFiles.ElementAt(5).NewFilename);
     }
 
     //---------------------------------------------------------------------------------------------
@@ -169,12 +169,12 @@ namespace m4gi10Test.Logic
       var renamedFiles = TrackFileRenamer.GetRenamedTrackFiles(trackFiles);
 
       // Assert.
-      Assert.AreEqual("Anothe_Random_1", renamedFiles.ElementAt(0).NewFilename);
-      Assert.AreEqual("Anothe_Random_2", renamedFiles.ElementAt(1).NewFilename);
-      Assert.AreEqual("SomeAr_Anothe_1", renamedFiles.ElementAt(2).NewFilename);
-      Assert.AreEqual("SomeAr_Anothe_2", renamedFiles.ElementAt(3).NewFilename);
-      Assert.AreEqual("SomeAr_SomeAl_1", renamedFiles.ElementAt(4).NewFilename);
-      Assert.AreEqual("SomeAr_SomeAl_2", renamedFiles.ElementAt(5).NewFilename);
+      Assert.AreEqual("Anothe_Random_01", renamedFiles.ElementAt(0).NewFilename);
+      Assert.AreEqual("Anothe_Random_02", renamedFiles.ElementAt(1).NewFilename);
+      Assert.AreEqual("SomeAr_Anothe_01", renamedFiles.ElementAt(2).NewFilename);
+      Assert.AreEqual("SomeAr_Anothe_02", renamedFiles.ElementAt(3).NewFilename);
+      Assert.AreEqual("SomeAr_SomeAl_01", renamedFiles.ElementAt(4).NewFilename);
+      Assert.AreEqual("SomeAr_SomeAl_02", renamedFiles.ElementAt(5).NewFilename);
     }
 
     //---------------------------------------------------------------------------------------------
@@ -198,7 +198,7 @@ namespace m4gi10Test.Logic
 
       // Assert.
       Assert.AreEqual(1, renamedFiles.Count());
-      Assert.AreEqual("SomeArtist_SomeAlbum_1.mp3", renamedFiles.First().NewFilename);
+      Assert.AreEqual("SomeArtist_SomeAlbum_01.mp3", renamedFiles.First().NewFilename);
     }
 
     //---------------------------------------------------------------------------------------------
