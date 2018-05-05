@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using m4gi10.Ui;
 
-namespace m4gi10.System
+namespace m4gi10.Core
 {
   public static class Program
   {
