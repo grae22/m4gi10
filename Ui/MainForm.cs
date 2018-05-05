@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Abstractions;
-using System.Linq;
 using System.Windows.Forms;
 using m4gi10.Logic;
 using m4gi10.Utils;
@@ -39,8 +38,15 @@ namespace m4gi10.Ui
 
       foreach (var track in renamedTracks)
       {
-        uiFiles.Items.Add(track.NewFilename);
+        uiFiles.Items.Add(track);
       }
+    }
+
+    //---------------------------------------------------------------------------------------------
+
+    private void uiGo_Click(object sender, EventArgs e)
+    {
+
     }
 
     //---------------------------------------------------------------------------------------------

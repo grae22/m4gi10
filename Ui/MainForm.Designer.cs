@@ -32,6 +32,9 @@
       this.uiMusicFolder = new System.Windows.Forms.TextBox();
       this.uiScanMusicFolder = new System.Windows.Forms.Button();
       this.uiFiles = new System.Windows.Forms.CheckedListBox();
+      this.uiGo = new System.Windows.Forms.Button();
+      this.uiOutputFolder = new System.Windows.Forms.TextBox();
+      this.label2 = new System.Windows.Forms.Label();
       this.SuspendLayout();
       // 
       // label1
@@ -71,11 +74,40 @@
       this.uiFiles.Size = new System.Drawing.Size(800, 424);
       this.uiFiles.TabIndex = 3;
       // 
+      // uiGo
+      // 
+      this.uiGo.Location = new System.Drawing.Point(740, 14);
+      this.uiGo.Name = "uiGo";
+      this.uiGo.Size = new System.Drawing.Size(75, 23);
+      this.uiGo.TabIndex = 6;
+      this.uiGo.Text = "Go!";
+      this.uiGo.UseVisualStyleBackColor = true;
+      this.uiGo.Click += new System.EventHandler(this.uiGo_Click);
+      // 
+      // uiOutputFolder
+      // 
+      this.uiOutputFolder.Location = new System.Drawing.Point(574, 16);
+      this.uiOutputFolder.Name = "uiOutputFolder";
+      this.uiOutputFolder.Size = new System.Drawing.Size(160, 20);
+      this.uiOutputFolder.TabIndex = 5;
+      // 
+      // label2
+      // 
+      this.label2.AutoSize = true;
+      this.label2.Location = new System.Drawing.Point(497, 19);
+      this.label2.Name = "label2";
+      this.label2.Size = new System.Drawing.Size(71, 13);
+      this.label2.TabIndex = 4;
+      this.label2.Text = "Output folder:";
+      // 
       // MainForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(827, 491);
+      this.Controls.Add(this.uiGo);
+      this.Controls.Add(this.uiOutputFolder);
+      this.Controls.Add(this.label2);
       this.Controls.Add(this.uiFiles);
       this.Controls.Add(this.uiScanMusicFolder);
       this.Controls.Add(this.uiMusicFolder);
@@ -93,5 +125,8 @@
     private System.Windows.Forms.TextBox uiMusicFolder;
     private System.Windows.Forms.Button uiScanMusicFolder;
     private System.Windows.Forms.CheckedListBox uiFiles;
+    private System.Windows.Forms.Button uiGo;
+    private System.Windows.Forms.TextBox uiOutputFolder;
+    private System.Windows.Forms.Label label2;
   }
 }
