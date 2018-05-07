@@ -112,8 +112,24 @@ namespace m4gi10.Logic
         newAlbum = newAlbum.Substring(0, albumNameMaxLength);
       }
 
-      var newName = $"{newArtistName}_{newAlbum}_{trackNumber:00}{track.FileExtension}";
+      string newName;
 
+      while (true)
+      {
+        newName = $"{newArtistName}_{newAlbum}_{trackNumber:00}{track.FileExtension}";
+
+        bool nameAlreadyExists =
+          renamedTracks.Exists(rt => rt.NewFilename.Equals(newName, StringComparison.OrdinalIgnoreCase));
+
+        if (nameAlreadyExists)
+        {
+          trackNumber++;
+          continue;
+        }
+
+        break;
+      }
+      
       renamedTracks.Add(new RenamedTrackFile(track, newName));
     }
 
