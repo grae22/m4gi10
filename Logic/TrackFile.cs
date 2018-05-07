@@ -10,6 +10,7 @@ namespace m4gi10.Logic
 
     public string Artist { get; private set; } = "";
     public string Album { get; private set; } = "";
+    public string TrackName { get; private set; } = "";
     public int TrackNumber { get; private set; }
     public string FileExtension { get; private set; } = "";
     public string Filename { get; }
@@ -18,6 +19,7 @@ namespace m4gi10.Logic
     private const string FilePropertyArtist = "System.Music.Artist";
     private const string FilePropertyAlbum = "System.Music.Album";
     private const string FilePropertyTrackNumber = "System.Music.TrackNumber";
+    private const string FilePropertyTrackTitle = "System.Music.Title";
 
     private IFileSystem FileSystem { get; }
     private IFileExtendedPropertyRetriever FilePropertyRetriever { get; }
@@ -37,6 +39,7 @@ namespace m4gi10.Logic
       UpdateArtist();
       UpdateAlbum();
       UpdateTrackNumber();
+      UpdateTrackName();
       UpdateFileExtension();
     }
 
@@ -99,6 +102,20 @@ namespace m4gi10.Logic
       }
 
       Album = "Unknown";
+    }
+
+    //---------------------------------------------------------------------------------------------
+
+    private void UpdateTrackName()
+    {
+      TrackName = FilePropertyRetriever.GetPropertyValue(FilePropertyTrackTitle);
+
+      if (!string.IsNullOrWhiteSpace(TrackName))
+      {
+        return;
+      }
+
+      TrackName = "Unknown";
     }
 
     //---------------------------------------------------------------------------------------------

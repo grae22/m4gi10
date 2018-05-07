@@ -19,7 +19,7 @@
 
     public override string ToString()
     {
-      return $"{NewFilename}";
+      return $"{NewFilename} \"{File.TrackName}\"";
     }
 
     //---------------------------------------------------------------------------------------------

@@ -35,6 +35,7 @@
       this.uiGo = new System.Windows.Forms.Button();
       this.uiOutputFolder = new System.Windows.Forms.TextBox();
       this.label2 = new System.Windows.Forms.Label();
+      this.uiClearSelection = new System.Windows.Forms.Button();
       this.SuspendLayout();
       // 
       // label1
@@ -101,11 +102,22 @@
       this.label2.TabIndex = 4;
       this.label2.Text = "Output folder:";
       // 
+      // uiClearSelection
+      // 
+      this.uiClearSelection.Location = new System.Drawing.Point(379, 14);
+      this.uiClearSelection.Name = "uiClearSelection";
+      this.uiClearSelection.Size = new System.Drawing.Size(75, 23);
+      this.uiClearSelection.TabIndex = 7;
+      this.uiClearSelection.Text = "Clear";
+      this.uiClearSelection.UseVisualStyleBackColor = true;
+      this.uiClearSelection.Click += new System.EventHandler(this.uiClearSelection_Click);
+      // 
       // MainForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(827, 491);
+      this.Controls.Add(this.uiClearSelection);
       this.Controls.Add(this.uiGo);
       this.Controls.Add(this.uiOutputFolder);
       this.Controls.Add(this.label2);
@@ -129,5 +141,6 @@
     private System.Windows.Forms.Button uiGo;
     private System.Windows.Forms.TextBox uiOutputFolder;
     private System.Windows.Forms.Label label2;
+    private System.Windows.Forms.Button uiClearSelection;
   }
 }

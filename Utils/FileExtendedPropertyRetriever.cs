@@ -56,6 +56,7 @@ namespace m4gi10.Utils
       var indexContributingArtists = arrHeaders.IndexOf("Contributing artists");
       var indexAlbum = arrHeaders.IndexOf("Album");
       var indexTrackNumber = arrHeaders.IndexOf("#");
+      var indexTrackTitle = arrHeaders.IndexOf("Title");
 
       //for (int i = 0; i < arrHeaders.Count; i++)
       //{
@@ -88,6 +89,11 @@ namespace m4gi10.Utils
       if (indexTrackNumber > -1)
       {
         properties.Add("system.music.tracknumber", objFolder.GetDetailsOf(item, indexTrackNumber));
+      }
+
+      if (indexTrackTitle > -1)
+      {
+        properties.Add("system.music.title", objFolder.GetDetailsOf(item, indexTrackTitle));
       }
 
       return properties;

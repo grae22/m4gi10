@@ -60,5 +60,15 @@ namespace m4gi10.Ui
     }
 
     //---------------------------------------------------------------------------------------------
+
+    private void uiClearSelection_Click(object sender, EventArgs e)
+    {
+      foreach (int i in uiFiles.CheckedIndices)
+      {
+        uiFiles.SetItemCheckState(i, CheckState.Unchecked);
+      }
+    }
+
+    //---------------------------------------------------------------------------------------------
   }
 }
