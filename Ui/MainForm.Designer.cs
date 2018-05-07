@@ -68,6 +68,7 @@
       this.uiFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+      this.uiFiles.CheckOnClick = true;
       this.uiFiles.FormattingEnabled = true;
       this.uiFiles.Location = new System.Drawing.Point(15, 53);
       this.uiFiles.Name = "uiFiles";

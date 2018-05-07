@@ -51,7 +51,7 @@ namespace m4gi10.Ui
         Directory.CreateDirectory(uiOutputFolder.Text);
       }
 
-      foreach (RenamedTrackFile track in uiFiles.Items)
+      foreach (RenamedTrackFile track in uiFiles.CheckedItems)
       {
         File.Copy(
           track.File.Filename,
