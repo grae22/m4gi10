@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Threading;
 using Shell32;
 
 namespace m4gi10.Utils
@@ -8,13 +9,17 @@ namespace m4gi10.Utils
   {
     //---------------------------------------------------------------------------------------------
 
-    private readonly Dictionary<string, string> _properties;
+    private Dictionary<string, string> _properties;
 
     //---------------------------------------------------------------------------------------------
 
     public FileExtendedPropertyRetriever(string filename)
     {
-      _properties = GetFileProperties(filename);
+      var threadStart = new ThreadStart(() => { _properties = GetFileProperties(filename); });
+      var thread = new Thread(threadStart);
+      thread.SetApartmentState(ApartmentState.STA);
+      thread.Start();
+      thread.Join(5000);
     }
 
     //---------------------------------------------------------------------------------------------
@@ -38,7 +43,7 @@ namespace m4gi10.Utils
       var properties = new Dictionary<string, string>();
       var arrHeaders = new List<string>();
 
-      Shell shell = new Shell();
+      var shell = new Shell();
 
       Folder objFolder = shell.NameSpace(Path.GetDirectoryName(filename));
 
