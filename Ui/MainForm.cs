@@ -28,6 +28,7 @@ namespace m4gi10.Ui
       var files = Directory.GetFiles(uiMusicFolder.Text, "*.mp3", SearchOption.AllDirectories);
       var tracks = new List<ITrackFile>();
       var fileSystem = new FileSystem();
+      var writeToConsole = new WriteToConsoleDelegate(WriteToConsole);
 
 #if true
       var filesToRename = new ConcurrentStack<string>(files);
@@ -61,9 +62,11 @@ namespace m4gi10.Ui
 
           worker.DoWork += (sender1, e1) =>
           {
+            var filename = string.Empty;
+
             try
             {
-              if (!filesToRename.TryPop(out string filename))
+              if (!filesToRename.TryPop(out filename))
               {
                 return;
               }
@@ -77,6 +80,7 @@ namespace m4gi10.Ui
             }
             catch (Exception ex)
             {
+              writeToConsole.Invoke($"{filename} : {ex.Message}");
               Console.WriteLine(ex);
             }
           };
@@ -108,6 +112,8 @@ namespace m4gi10.Ui
       {
         uiFiles.Items.Add(track);
       }
+
+      writeToConsole.Invoke("Scanning complete.");
     }
 
     //---------------------------------------------------------------------------------------------
@@ -119,12 +125,22 @@ namespace m4gi10.Ui
         Directory.CreateDirectory(uiOutputFolder.Text);
       }
 
+      var writeToConsole = new WriteToConsoleDelegate(WriteToConsole);
+
       foreach (RenamedTrackFile track in uiFiles.CheckedItems)
       {
-        File.Copy(
-          track.File.Filename,
-          $@"{uiOutputFolder.Text}\{track.NewFilename}");
+        var newFilename = $@"{uiOutputFolder.Text}\{track.NewFilename}";
+
+        if (File.Exists(newFilename))
+        {
+          writeToConsole.Invoke($"File already exists : {newFilename}");
+          continue;
+        }
+
+        File.Copy(track.File.Filename, $"{newFilename}");
       }
+
+      writeToConsole.Invoke("Copy complete.");
     }
 
     //---------------------------------------------------------------------------------------------
@@ -135,6 +151,15 @@ namespace m4gi10.Ui
       {
         uiFiles.SetItemCheckState(i, CheckState.Unchecked);
       }
+    }
+
+    //---------------------------------------------------------------------------------------------
+
+    private delegate void WriteToConsoleDelegate(string message);
+
+    private void WriteToConsole(string message)
+    {
+      uiConsole.AppendText($"{message}{Environment.NewLine}");
     }
 
     //---------------------------------------------------------------------------------------------

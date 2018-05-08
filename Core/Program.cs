@@ -36,7 +36,7 @@ namespace m4gi10.Core
     private static void ThreadExceptionHandler(object sender, ThreadExceptionEventArgs e)
     {
       MessageBox.Show(
-        e.ToString(),
+        e.Exception.ToString(),
         "Thread Exception",
         MessageBoxButtons.OK,
         MessageBoxIcon.Error);

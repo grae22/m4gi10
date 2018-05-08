@@ -36,6 +36,7 @@
       this.uiOutputFolder = new System.Windows.Forms.TextBox();
       this.label2 = new System.Windows.Forms.Label();
       this.uiClearSelection = new System.Windows.Forms.Button();
+      this.uiConsole = new System.Windows.Forms.TextBox();
       this.SuspendLayout();
       // 
       // label1
@@ -73,7 +74,7 @@
       this.uiFiles.FormattingEnabled = true;
       this.uiFiles.Location = new System.Drawing.Point(15, 53);
       this.uiFiles.Name = "uiFiles";
-      this.uiFiles.Size = new System.Drawing.Size(800, 424);
+      this.uiFiles.Size = new System.Drawing.Size(800, 334);
       this.uiFiles.TabIndex = 3;
       // 
       // uiGo
@@ -112,11 +113,25 @@
       this.uiClearSelection.UseVisualStyleBackColor = true;
       this.uiClearSelection.Click += new System.EventHandler(this.uiClearSelection_Click);
       // 
+      // uiConsole
+      // 
+      this.uiConsole.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.uiConsole.Location = new System.Drawing.Point(15, 393);
+      this.uiConsole.Multiline = true;
+      this.uiConsole.Name = "uiConsole";
+      this.uiConsole.ReadOnly = true;
+      this.uiConsole.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+      this.uiConsole.Size = new System.Drawing.Size(800, 86);
+      this.uiConsole.TabIndex = 8;
+      this.uiConsole.WordWrap = false;
+      // 
       // MainForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(827, 491);
+      this.Controls.Add(this.uiConsole);
       this.Controls.Add(this.uiClearSelection);
       this.Controls.Add(this.uiGo);
       this.Controls.Add(this.uiOutputFolder);
@@ -142,5 +157,6 @@
     private System.Windows.Forms.TextBox uiOutputFolder;
     private System.Windows.Forms.Label label2;
     private System.Windows.Forms.Button uiClearSelection;
+    private System.Windows.Forms.TextBox uiConsole;
   }
 }
